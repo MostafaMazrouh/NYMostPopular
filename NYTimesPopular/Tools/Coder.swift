@@ -42,31 +42,8 @@ class Coder
         }
         return nil
     }
-    
-    func encodeToSring<T: Codable>(fromCodable codable: T) -> String?
-    {
-        let data: Data = self.encode(fromCodable: codable) ?? Data()
-        let json = String(data: data, encoding: String.Encoding.utf8)
-
-        return json
-    }
 }
 
-
-extension String
-{
-    func dictionary() -> [String: Any]?
-    {
-        if let data = self.data(using: .utf8) {
-            do {
-                return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
-            } catch {
-                print(error.localizedDescription)
-            }
-        }
-        return nil
-    }
-}
 
 
 

@@ -1,5 +1,5 @@
 //
-//  MostPopularView.swift
+//  PopularView.swift
 //  NYTimesPopular
 //
 //  Created by Mostafa on 3/27/19.
@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import SDWebImage
 
-class MostPopularCell: UITableViewCell
+class PopularCell: UITableViewCell
 {
-    static let cellId = "MostPopularCell"
+    static let cellId = "PopularCell"
     static let height: CGFloat = 200
     
     @IBOutlet weak var cellImage: UIImageView!
@@ -25,22 +26,19 @@ class MostPopularCell: UITableViewCell
         cellImage.setRounded()
     }
     
-    func setUp(result: Result, indexPath: IndexPath, viewModel: MostPopularViewModel)
+    func setUp(result: Result)
     {
+        titleLabel.accessibilityIdentifier = "titleLabel"
+        authorLabel.accessibilityIdentifier = "authorLabel"
+        dateLabel.accessibilityIdentifier = "dateLabel"
+        
         titleLabel.text = result.title
         authorLabel.text = result.byline
         dateLabel.text = result.published_date
         
-        guard let id = result.id else { return }
+        guard let smallImage = result.smallImage else { return }
         
-        if let image = viewModel.popularImages[id]
-        {
-            cellImage.image = image
-        } else {
-            viewModel.loadMostPopularImage(result: result, indexPath: indexPath)
-        }
-        
-        
+        cellImage.sd_setImage(with: URL(string: smallImage), placeholderImage: nil)
     }
 
 }

@@ -9,26 +9,51 @@
 import XCTest
 @testable import NYTimesPopular
 
-class NYTimesPopularTests: XCTestCase {
-
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+class NYTimesPopularTests: XCTestCase
+{
+    func testLoadResult()
+    {
+        class NetworkEngineMock: NetworkEngine {
+            typealias Handler = NetworkEngine.Handler
+            
+            var requestedURL: URL?
+            
+            func performRequest(for url: URL, completionHandler: @escaping Handler) {
+                requestedURL = url
+                
+                let bundel = Bundle(for: CoderTests.self)
+                
+                if let path = bundel.path(forResource: "NYTimesPopular", ofType: "json")
+                {
+                    do
+                    {
+                        let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+                        
+                        completionHandler(data, nil, nil)
+                    } catch {
+                        XCTFail("Can't read NYTimesPopular.json")
+                    }
+                } else {
+                    XCTFail("Can't get path to NYTimesPopular.json")
+                }
+            }
         }
+        
+        let engine = NetworkEngineMock()
+        
+        
+        let viewModel = PopularViewModel(engine: engine, url: Constants.urlTest)
+        
+        viewModel.loadResult()
+        
+        let vmResults = viewModel.results.value
+        
+        XCTAssert(vmResults.count == 20, "Wrong count number")
+        
+        XCTAssert(vmResults[0].title == "At 71, She’s Never Felt Pain or Anxiety. Now Scientists Know Why.",
+                  "Wrong title")
+        XCTAssert(vmResults[0].published_date == "2019-03-28",
+                  "Wrong published_date")
     }
 }
 

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class DetailsViewController: UIViewController
 {
@@ -20,15 +21,11 @@ class DetailsViewController: UIViewController
     
     var result: Result?
     
-    let viewModel = MostPopularViewModel()
-
     override func viewDidLoad()
     {
         super.viewDidLoad()
 
         setUp()
-        
-        getImage()
     }
     
     func setUp()
@@ -39,26 +36,18 @@ class DetailsViewController: UIViewController
             navigationController?.popViewController(animated: true)
             return }
         
+        titleLabel.accessibilityIdentifier = "titleLabelDetail"
+        authorLabel.accessibilityIdentifier = "authorLabelDetail"
+        dateLabel.accessibilityIdentifier = "dateLabelDetail"
+        
         titleLabel.text = result.title
         authorLabel.text = result.byline
         dateLabel.text = result.published_date
         
         detailsLabel.text = result.abstract
-    }
-    
-    func getImage()
-    {
-        guard let result = result else {
-            navigationController?.popViewController(animated: true)
-            return }
         
-        viewModel.getBigImage(result: result) { [weak self] (image) in
-            
-            DispatchQueue.main.async {
-                self?.bigImage.image = image
-                self?.view.layoutIfNeeded()
-            }
-        }
+        guard let bigImageURL = result.bigImage else { return }
+        
+        bigImage.sd_setImage(with: URL(string: bigImageURL), placeholderImage: nil)
     }
-
 }

@@ -27,8 +27,29 @@ class NYTimesPopularUITests: XCTestCase {
     }
 
     func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let app = XCUIApplication()
+        
+        let tableView = app.tables["PopularTableView"]
+        
+        Thread.sleep(forTimeInterval: 3.0)
+        
+        XCTAssert(tableView.cells.count > 0, "No data")
+        
+        
+        let cell = tableView.cells.containing(.cell, identifier: "0").element
+        let titleLabelOut = cell.staticTexts["titleLabel"].label
+        let authorLabelOut = cell.staticTexts["authorLabel"].label
+        let dateLabelOut = cell.staticTexts["dateLabel"].label
+        
+        cell.tap()
+        
+        let titleLabelDetail = app.staticTexts["titleLabelDetail"].label
+        let authorLabelDetail = app.staticTexts["authorLabelDetail"].label
+        let dateLabelDetail = app.staticTexts["dateLabelDetail"].label
+        
+        XCTAssert(titleLabelOut == titleLabelDetail, "Wrong match")
+        XCTAssert(authorLabelOut == authorLabelDetail, "Wrong match")
+        XCTAssert(dateLabelOut == dateLabelDetail, "Wrong match")
     }
 
 }
