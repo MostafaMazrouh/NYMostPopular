@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites name='NYTimesPopularTests.xctest' tests='3' failures='1'>
+  <testsuite name='NYTimesPopularUITests.NYTimesPopularUITests' tests='1' failures='0'>
+    <testcase classname='NYTimesPopularUITests.NYTimesPopularUITests' name='testExample' time='11.686'/>
+  </testsuite>
+  <testsuite name='NYTimesPopularTests.CoderTests' tests='1' failures='0'>
+    <testcase classname='NYTimesPopularTests.CoderTests' name='testDacode' time='0.024'/>
+  </testsuite>
+  <testsuite name='NYTimesPopularTests.NYTimesPopularTests' tests='1' failures='1'>
+    <testcase classname='NYTimesPopularTests.NYTimesPopularTests' name='testLoadResult'>
+      <failure message='XCTAssertTrue failed - Wrong count number'>NYTimesPopularTests/NYTimesPopularTests.swift:51</failure>
+    </testcase>
+  </testsuite>
+</testsuites>

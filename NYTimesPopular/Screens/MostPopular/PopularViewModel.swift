@@ -29,6 +29,15 @@ class PopularViewModel
     var error: Binder<String>?
     var loading = Binder(false)
     
+    let availableArrayRGB: [(Double, Double, Double)] = [
+        (0, 0, 0),
+        (1, 0, 0),
+        (0, 1, 0),
+        (0, 0, 1),
+        (1, 1, 1)
+    ]
+    
+    
     private let engine: NetworkEngine
     private let url: URL
     

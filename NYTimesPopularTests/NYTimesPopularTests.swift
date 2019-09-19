@@ -46,7 +46,10 @@ class NYTimesPopularTests: XCTestCase
         
         viewModel.loadResult()
         
-        let vmResults = viewModel.results.value
+        guard let vmResults = viewModel.results.value else {
+            XCTFail("Enpty Result")
+            return
+        }
         
         XCTAssert(vmResults.count == 20, "Wrong count number")
         

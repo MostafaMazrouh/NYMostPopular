@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aKu-Dt-cmt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aKu-Dt-cmt">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -123,11 +123,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZHx-fg-6yP">
+                                <rect key="frame" x="87.5" y="40" width="200" height="33"/>
+                                <color key="backgroundColor" name="selectedMenuItemColor" catalog="System" colorSpace="catalog"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="602-4O-BH9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <state key="normal" title="Random Color">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="randomColorAction:" destination="mdQ-xI-TQV" eventType="touchUpInside" id="B20-Dv-ycY"/>
+                                </connections>
+                            </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cTe-ws-Ahf">
-                                <rect key="frame" x="20" y="40" width="335" height="607"/>
+                                <rect key="frame" x="20" y="120" width="335" height="527"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="FsS-Dn-dhv">
-                                        <rect key="frame" x="0.0" y="0.0" width="335" height="604"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="451"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ul4-Wn-aKY">
                                                 <rect key="frame" x="0.0" y="0.0" width="335" height="20.5"/>
@@ -136,7 +155,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K05-8F-YPV">
-                                                <rect key="frame" x="0.0" y="28.5" width="335" height="503"/>
+                                                <rect key="frame" x="0.0" y="28.5" width="335" height="350"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="4"/>
@@ -144,19 +163,19 @@
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Iu-Dv-7lQ">
-                                                <rect key="frame" x="0.0" y="539.5" width="335" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="386.5" width="335" height="20.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pie-e5-bSu">
-                                                <rect key="frame" x="0.0" y="568" width="335" height="14.5"/>
+                                                <rect key="frame" x="0.0" y="415" width="335" height="14.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="highlightedColor" cocoaTouchSystemColor="darkTextColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x2r-lD-KYe">
-                                                <rect key="frame" x="0.0" y="590.5" width="335" height="13.5"/>
+                                                <rect key="frame" x="0.0" y="437.5" width="335" height="13.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -175,9 +194,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="ZHx-fg-6yP" firstAttribute="centerX" secondItem="cZd-Z3-dSs" secondAttribute="centerX" id="3h2-Ut-L1M"/>
                             <constraint firstItem="cTe-ws-Ahf" firstAttribute="leading" secondItem="cZd-Z3-dSs" secondAttribute="leading" constant="20" id="JcW-Px-YN3"/>
+                            <constraint firstItem="ZHx-fg-6yP" firstAttribute="top" secondItem="cZd-Z3-dSs" secondAttribute="top" constant="20" id="eOd-6n-joH"/>
                             <constraint firstItem="cZd-Z3-dSs" firstAttribute="trailing" secondItem="cTe-ws-Ahf" secondAttribute="trailing" constant="20" id="rbu-wO-PS9"/>
-                            <constraint firstItem="cTe-ws-Ahf" firstAttribute="top" secondItem="cZd-Z3-dSs" secondAttribute="top" constant="20" id="wBA-jB-b7L"/>
+                            <constraint firstItem="cTe-ws-Ahf" firstAttribute="top" secondItem="cZd-Z3-dSs" secondAttribute="top" constant="100" id="wBA-jB-b7L"/>
                             <constraint firstItem="cZd-Z3-dSs" firstAttribute="bottom" secondItem="cTe-ws-Ahf" secondAttribute="bottom" constant="20" id="yML-Tf-yUL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cZd-Z3-dSs"/>
@@ -187,6 +208,7 @@
                         <outlet property="bigImage" destination="K05-8F-YPV" id="G2g-oh-AIS"/>
                         <outlet property="dateLabel" destination="x2r-lD-KYe" id="CIs-yM-syo"/>
                         <outlet property="detailsLabel" destination="6Iu-Dv-7lQ" id="FfT-wP-2QY"/>
+                        <outlet property="randomColor" destination="ZHx-fg-6yP" id="Jcj-XG-8Ja"/>
                         <outlet property="titleLabel" destination="ul4-Wn-aKY" id="6al-NC-TSX"/>
                     </connections>
                 </viewController>
