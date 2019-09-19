@@ -32,6 +32,26 @@ class DetailsViewModelTests: XCTestCase {
         XCTAssert(randomNumber < 13, "Large Random Number")
     }
 
+    func testRandomColor() {
+        
+        let popularViewModel = PopularViewModel()
+        let detailsViewModel = DetailsViewModel()
+        
+        detailsViewModel.popularViewModel = popularViewModel
+        
+        detailsViewModel.getRandomColorRGB()
+        
+        guard let randomColor = detailsViewModel.colorRGB.value else {
+            XCTFail("Empty randomColor")
+            return
+        }
+        
+        print("randomColor: \(randomColor)")
+        
+        XCTAssert(popularViewModel.availableArrayRGB.contains(where:  {$0 == randomColor}), "Color is not contained")
+        
+    }
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {

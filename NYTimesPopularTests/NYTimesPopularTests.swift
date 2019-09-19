@@ -47,7 +47,7 @@ class NYTimesPopularTests: XCTestCase
         viewModel.loadResult()
         
         guard let vmResults = viewModel.results.value else {
-            XCTFail("Enpty Result")
+            XCTFail("Empty Result")
             return
         }
         
